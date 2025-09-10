@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pokedex</h1>
+    <ul id="lista-pokemones"></ul>
+</body>
+<script>
+
+async function obtenerPokemones(){
+const respuesta = await fetch (' https://pokeapi.co/api/v2/pokemon/' , {
+    method:"GET",
+}) 
+const pokemones = await respuesta.json()
+const listadodePokemones = pokemones.results
+console.log(listadodePokemones)
+return listadodePokemones
+}
+
+
+async function mostrarPokemones(){
+
+    const pokemones = await obtenerPokemones()
+    console.log("listado: ", pokemones)
+
+   pokemones.forEach(pokemon => {
+    const li = document.createElement('li')
+    li.innerText = pokemon.name
+
+    listado.appendChild(li)
+       
+   });
+
+}
+
+
+</script>
+
+
+</html>
