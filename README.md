@@ -1,1 +1,1 @@
-# Plataformas-mobiles-entrega
+# descartado
